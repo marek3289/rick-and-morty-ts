@@ -14,7 +14,8 @@ module.exports = {
     },
   },
   rules: {
-    //
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-empty-interface': 0,
   },
   settings: {
     react: {
