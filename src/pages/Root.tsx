@@ -1,21 +1,19 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Layout } from 'components/index';
+import routesMap from 'routes';
 
-const Square = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: ${({ theme }) => theme.someColor};
-`;
-
-const App: FC = () => {
-  return (
+const Root: FC = () => (
+  <BrowserRouter>
     <Layout>
-      <Square />
-      <h1>Hello World!</h1>
+      <Switch>
+        {routesMap.map((route, i) => (
+          <Route {...route} key={i} />
+        ))}
+      </Switch>
     </Layout>
-  );
-};
+  </BrowserRouter>
+);
 
-export default App;
+export default Root;
