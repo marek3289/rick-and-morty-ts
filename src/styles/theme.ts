@@ -1,5 +1,5 @@
 const colors = {
-  someOtherColor: 'blue',
+  green: 'hsl(107, 81%, 51%)',
 };
 
 const theme = {
