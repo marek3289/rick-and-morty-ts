@@ -1,7 +1,6 @@
-import { HomePage, EpisodesPage, LocationsPage, CharactersPage, NotFound } from 'pages/index';
+import { HomePage, EpisodesPage, LocationsPage, CharactersPage } from 'pages/index';
 import { ROUTES } from './constants';
-
-interface IRouteProps {}
+import { Redirect } from 'react-router';
 
 const routesMap: Array<IRouteProps> = [
   {
@@ -38,7 +37,12 @@ const routesMap: Array<IRouteProps> = [
   },
   {
     path: ROUTES.NOT_FOUND.path,
-    component: NotFound,
+    component: Redirect,
+    redirect: {
+      from: ROUTES.NOT_FOUND.path,
+      to: ROUTES.HOME.path,
+      exact: true,
+    },
   },
 ];
 
