@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Layout } from 'components/index';
-import routesMap from 'routes';
+import routesMap from 'routes/routes';
 
 const Root: FC = () => (
   <BrowserRouter>
