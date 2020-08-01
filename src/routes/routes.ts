@@ -1,46 +1,24 @@
-import { HomePage, EpisodesPage, LocationsPage, CharactersPage } from 'pages/index';
+import { HomePage, DetailsPage } from 'pages';
 import { ROUTES } from './constants';
 import { Redirect } from 'react-router';
 
 const routesMap: Array<IRouteProps> = [
   {
-    path: ROUTES.HOME.path,
+    path: ROUTES.HOME,
     exact: true,
     component: HomePage,
-    meta: {
-      title: ROUTES.HOME.name,
-    },
   },
   {
-    path: ROUTES.EPISODES.path,
+    path: ROUTES.DETAILS,
     exact: true,
-    component: EpisodesPage,
-    meta: {
-      title: ROUTES.EPISODES.name,
-    },
+    component: DetailsPage,
   },
   {
-    path: ROUTES.LOCATIONS.path,
-    exact: true,
-    component: LocationsPage,
-    meta: {
-      title: ROUTES.LOCATIONS.name,
-    },
-  },
-  {
-    path: ROUTES.CHARACTERS.path,
-    exact: true,
-    component: CharactersPage,
-    meta: {
-      title: ROUTES.CHARACTERS.name,
-    },
-  },
-  {
-    path: ROUTES.NOT_FOUND.path,
+    path: ROUTES.NOT_FOUND,
     component: Redirect,
     redirect: {
-      from: ROUTES.NOT_FOUND.path,
-      to: ROUTES.HOME.path,
+      from: ROUTES.NOT_FOUND,
+      to: ROUTES.HOME,
       exact: true,
     },
   },

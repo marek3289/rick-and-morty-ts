@@ -13,8 +13,23 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     overflow: hidden;
     overflow-y: scroll;
+    background-color: ${({ theme }) => theme.dark};
+    font-family: 'Roboto', sans-serif;
+    font-size: ${({ theme }) => theme.font.size.m};
+    font-weight: ${({ theme }) => theme.font.weight.regular};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  ul {
+    list-style: none;
+  }
+  h1, h2, h3, p {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
 

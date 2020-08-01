@@ -1,5 +1,20 @@
 import React, { FC } from 'react';
+import styled from 'styled-components';
+import { useQuery, gql } from '@apollo/client';
 
-const HomePage: FC = () => <h1>Hello from HomePage</h1>;
+import { Header, CharactersList } from 'components';
+
+const StyledWrapper = styled.div`
+  width: 100%;
+`;
+
+const HomePage: FC = () => {
+  return (
+    <StyledWrapper>
+      <Header />
+      <CharactersList />
+    </StyledWrapper>
+  );
+};
 
 export default HomePage;

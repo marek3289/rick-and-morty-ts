@@ -14,7 +14,6 @@ const client = new ApolloClient({
 const Layout: FC = ({ children }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
-
     <ApolloProvider client={client}>{children}</ApolloProvider>
   </ThemeProvider>
 );
