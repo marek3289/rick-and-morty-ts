@@ -12,6 +12,14 @@ interface IRouteProps {
   redirect?: IRedirectProps;
 }
 
+// Header
+type EventType = React.ChangeEvent<HTMLInputElement>;
+
+interface IHeader {
+  value: string;
+  serachAction: (e: EventType) => void;
+}
+
 // Characters
 interface ICharacter {
   __typename: string;
@@ -28,6 +36,13 @@ interface IPagesInfo {
 
 interface ICharacterVars {
   page: number;
+  search: string;
+}
+
+// zrobic extends ICharacterVars z optional
+interface IListProps {
+  page?: number;
+  search?: string;
 }
 
 interface IResults {

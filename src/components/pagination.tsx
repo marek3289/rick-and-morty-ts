@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  background-color: ${({ theme }) => theme.dark};
+  background-color: ${({ theme }) => theme.dark100};
   color: ${({ theme }) => theme.light};
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.light};
@@ -27,7 +27,7 @@ const Pagination: FC<IPagination> = ({ currentPage, info }) => {
 
   return (
     <StyledWrapper>
-      {prev && <StyledLink to={prev == '1' ? `/` : `/page/${prev}`}>Prev</StyledLink>}
+      {prev && <StyledLink to={prev.toString() === '1' ? `/` : `/page/${prev}`}>Prev</StyledLink>}
       <StyledLink as="span">{currentPage}</StyledLink>
       {next && <StyledLink to={`/page/${next}`}>Next</StyledLink>}
     </StyledWrapper>

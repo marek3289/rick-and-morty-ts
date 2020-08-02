@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     overflow: hidden;
     overflow-y: scroll;
-    background-color: ${({ theme }) => theme.dark};
+    background-color: ${({ theme }) => theme.dark100};
     font-family: 'Roboto', sans-serif;
     font-size: ${({ theme }) => theme.font.size.m};
     font-weight: ${({ theme }) => theme.font.weight.regular};

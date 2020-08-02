@@ -6,8 +6,6 @@ import { CharacterPreview, Pagination } from 'components';
 import { Heading, mixins } from 'styles';
 import spinner from '../assets/spinner.gif';
 
-import { Link, Redirect } from 'react-router-dom';
-
 const StyledWrapper = styled.main`
   ${mixins.flexColumn};
   .state-info {
@@ -23,8 +21,8 @@ const StyledList = styled.ul`
 `;
 
 const query = gql`
-  query($page: Int!) {
-    characters(page: $page) {
+  query($page: Int!, $search: String) {
+    characters(page: $page, filter: { name: $search }) {
       results {
         id
         name
@@ -39,10 +37,12 @@ const query = gql`
   }
 `;
 
-const CharactersList: FC<{ page?: number }> = ({ page = 1 }) => {
+const CharactersList: FC<IListProps> = ({ search = '', page = 1 }) => {
   const { loading, error, data } = useQuery<{ characters: IResults }, ICharacterVars>(query, {
-    variables: { page },
+    variables: { page, search },
   });
+
+  const arr: any[] = [];
 
   return (
     <StyledWrapper>

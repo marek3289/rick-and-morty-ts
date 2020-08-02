@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
@@ -11,10 +11,14 @@ const StyledWrapper = styled.div`
 const HomePage: FC = () => {
   const { id } = useParams<{ id: string | undefined }>();
 
+  const [searchValue, setSearchValue] = useState('');
+  const handleSearch = (e: EventType): void => setSearchValue(e.target.value);
+  console.log(searchValue);
+
   return (
     <StyledWrapper>
-      <Header />
-      <CharactersList page={id ? parseInt(id, 10) : undefined} />
+      <Header value={searchValue} serachAction={handleSearch} />
+      <CharactersList search={searchValue} page={id ? parseInt(id, 10) : undefined} />
     </StyledWrapper>
   );
 };

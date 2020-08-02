@@ -11,8 +11,8 @@ const StyledPreview = styled(Link)`
 
   background-color: ${({ theme }) => theme.light};
   border-radius: ${({ theme }) => theme.borderRadius};
-  box-shadow: 2px 2px 4px 4px ${({ theme }) => theme.dark};
-  color: ${({ theme }) => theme.dark};
+  box-shadow: 2px 2px 4px 4px ${({ theme }) => theme.dark100};
+  color: ${({ theme }) => theme.dark100};
   transition: transform 0.1s ease-in;
   text-align: center;
   cursor: pointer;
