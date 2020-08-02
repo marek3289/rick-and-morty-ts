@@ -2,9 +2,11 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useQuery, gql } from '@apollo/client';
 
-import { CharacterPreview } from 'components';
+import { CharacterPreview, Pagination } from 'components';
 import { Heading, mixins } from 'styles';
 import spinner from '../assets/spinner.gif';
+
+import { Link, Redirect } from 'react-router-dom';
 
 const StyledWrapper = styled.main`
   ${mixins.flexColumn};
@@ -30,25 +32,29 @@ const query = gql`
       }
       info {
         pages
+        next
+        prev
       }
     }
   }
 `;
 
 const CharactersList: FC<{ page?: number }> = ({ page = 1 }) => {
-  const { loading, error, data } = useQuery<ICharactersList, ICharacterVars>(query, {
+  const { loading, error, data } = useQuery<{ characters: IResults }, ICharacterVars>(query, {
     variables: { page },
   });
 
   return (
     <StyledWrapper>
       <StyledList>
-        {data?.characters.results.map((char) => (
+        {data?.characters.results.map((char: ICharacter) => (
           <li key={char.id}>
             <CharacterPreview character={char} />
           </li>
         ))}
       </StyledList>
+
+      {data && <Pagination currentPage={page} info={data.characters.info} />}
 
       {loading && !error && <img src={spinner} className="state-info" alt="loading_spinner" />}
       {!loading && error && (

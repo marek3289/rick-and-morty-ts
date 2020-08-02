@@ -20,24 +20,22 @@ interface ICharacter {
   image: string;
 }
 
-interface IResults {
-  results: ICharacter[];
-  info: IInfo;
-}
-
-interface IInfo {
+interface IPagesInfo {
   pages: number;
-}
-
-interface IResults {
-  results: ICharacter[];
-  info: IInfo;
-}
-
-interface ICharactersList {
-  characters: IResults;
+  next?: string;
+  prev?: string;
 }
 
 interface ICharacterVars {
   page: number;
+}
+
+interface IResults {
+  results: ICharacter[];
+  info: IPagesInfo;
+}
+
+interface IPagination {
+  currentPage: number;
+  info: IPagesInfo;
 }

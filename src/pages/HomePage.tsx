@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { useQuery, gql } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 
 import { Header, CharactersList } from 'components';
 
@@ -9,10 +9,12 @@ const StyledWrapper = styled.div`
 `;
 
 const HomePage: FC = () => {
+  const { id } = useParams<{ id: string | undefined }>();
+
   return (
     <StyledWrapper>
       <Header />
-      <CharactersList />
+      <CharactersList page={id ? parseInt(id, 10) : undefined} />
     </StyledWrapper>
   );
 };
