@@ -42,8 +42,6 @@ const CharactersList: FC<IListProps> = ({ search = '', page = 1 }) => {
     variables: { page, search },
   });
 
-  const arr: any[] = [];
-
   return (
     <StyledWrapper>
       <StyledList>
@@ -59,7 +57,7 @@ const CharactersList: FC<IListProps> = ({ search = '', page = 1 }) => {
       {loading && !error && <img src={spinner} className="state-info" alt="loading_spinner" />}
       {!loading && error && (
         <Heading color="red" className="state-info">
-          {error}
+          {error.message}
         </Heading>
       )}
     </StyledWrapper>

@@ -17,7 +17,7 @@ type EventType = React.ChangeEvent<HTMLInputElement>;
 
 interface IHeader {
   value: string;
-  serachAction: (e: EventType) => void;
+  searchAction: (e: EventType) => void;
 }
 
 // Characters

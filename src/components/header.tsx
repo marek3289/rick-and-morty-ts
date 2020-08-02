@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
 import { mixins } from 'styles';
@@ -39,11 +39,11 @@ const StyledInput = styled.input`
   }
 `;
 
-const Header: FC<IHeader> = ({ value, serachAction }) => {
+const Header: FC<IHeader> = ({ value, searchAction }) => {
   return (
     <StyledHeader>
       <StyledHeading>Find Rick and Morty Character!</StyledHeading>
-      <StyledInput type="search" value={value} placeholder="eg. Rick Sanchez" onChange={serachAction} />
+      <StyledInput type="search" value={value} placeholder="eg. Rick Sanchez" onChange={searchAction} />
     </StyledHeader>
   );
 };
