@@ -28,21 +28,15 @@ interface ICharacter {
   image: string;
 }
 
-interface IPagesInfo {
-  pages: number;
-  next?: string;
-  prev?: string;
-}
-
 interface ICharacterVars {
   page: number;
   search: string;
 }
 
-// zrobic extends ICharacterVars z optional
 interface IListProps {
-  page?: number;
-  search?: string;
+  search: string;
+  page: number;
+  setPage: any;
 }
 
 interface IResults {
@@ -50,7 +44,15 @@ interface IResults {
   info: IPagesInfo;
 }
 
+type PageNumberType = number | undefined;
+
+interface IPaginationInfo {
+  next: PageNumberType;
+  prev: PageNumberType;
+}
+
 interface IPagination {
-  currentPage: number;
-  info: IPagesInfo;
+  pageInfo?: IPaginationInfo;
+  setPage: (pageNumber: PageNumberType) => void;
+  isLoading: boolean | undefined;
 }

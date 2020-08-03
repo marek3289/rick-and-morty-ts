@@ -37,7 +37,7 @@ const query = gql`
   }
 `;
 
-const CharactersList: FC<IListProps> = ({ search = '', page = 1 }) => {
+const CharactersList: FC<IListProps> = ({ search, page, setPage }) => {
   const { loading, error, data } = useQuery<{ characters: IResults }, ICharacterVars>(query, {
     variables: { page, search },
   });
@@ -52,10 +52,10 @@ const CharactersList: FC<IListProps> = ({ search = '', page = 1 }) => {
         ))}
       </StyledList>
 
-      {data && <Pagination currentPage={page} info={data.characters.info} />}
+      {data && <Pagination pageInfo={data?.characters.info} setPage={setPage} isLoading={loading} />}
 
-      {loading && !error && <img src={spinner} className="state-info" alt="loading_spinner" />}
-      {!loading && error && (
+      {loading && !data && <img src={spinner} className="state-info" alt="loading_spinner" />}
+      {error && (
         <Heading color="red" className="state-info">
           {error.message}
         </Heading>

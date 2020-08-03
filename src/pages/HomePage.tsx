@@ -1,7 +1,5 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
-import { Redirect } from 'react-router';
 
 import { Header, CharactersList } from 'components';
 
@@ -10,16 +8,18 @@ const StyledWrapper = styled.div`
 `;
 
 const HomePage: FC = () => {
-  const { id } = useParams<{ id: string | undefined }>();
-
   const [searchValue, setSearchValue] = useState('');
+  const [pageNumber, setPageNumber] = useState(1);
 
-  const handleSearch = (e: EventType): void => setSearchValue(e.target.value);
+  const handleSearch = (e: EventType): void => {
+    setPageNumber(1);
+    setSearchValue(e.target.value);
+  };
 
   return (
     <StyledWrapper>
       <Header value={searchValue} searchAction={handleSearch} />
-      <CharactersList search={searchValue} page={id ? parseInt(id, 10) : undefined} />
+      <CharactersList search={searchValue} page={pageNumber} setPage={setPageNumber} />
     </StyledWrapper>
   );
 };

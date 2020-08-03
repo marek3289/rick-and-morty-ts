@@ -9,11 +9,6 @@ const routesMap: Array<IRouteProps> = [
     component: HomePage,
   },
   {
-    path: ROUTES.PAGE,
-    exact: true,
-    component: HomePage,
-  },
-  {
     path: ROUTES.DETAILS,
     exact: true,
     component: DetailsPage,
